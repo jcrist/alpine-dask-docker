@@ -9,16 +9,16 @@ Three images are provided:
 
 - ``jcrist/alpine-conda`` |alpine-conda|
 
-    A base image with miniconda_ installed.
+  A base image with miniconda_ installed.
 
 - ``jcrist/alpine-dask`` |alpine-dask|
 
-    An image for running both the dask schedulers and workers.
+  An image for running both the dask schedulers and workers.
 
 - ``jcrist/alpine-dask-notebook`` |alpine-dask-notebook|
 
-    An image with all of the above, as well as `Jupyter Notebook`_ and
-    JupyterLab_ installed.
+  An image with all of the above, as well as `Jupyter Notebook`_ and
+  JupyterLab_ installed.
 
 These images can be used as is, or extended with additional packages by using
 them as a base image:
