@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+  scheduler:
+    build:
+      context: ./alpine-dask
+      dockerfile: Dockerfile
+    image: jcrist/alpine-dask
+    hostname: scheduler
+    ports:
+      - "8786:8786"
+      - "8787:8787"
+    command: ["dask-scheduler"]
+
+  worker:
+    build:
+      context: ./alpine-dask
+      dockerfile: Dockerfile
+    image: jcrist/alpine-dask
+    hostname: worker
+    command: ["dask-worker", "tcp://scheduler:8786"]
+
+  notebook:
+    build:
+      context: ./alpine-dask-notebook
+      dockerfile: Dockerfile
+    image: jcrist/alpine-dask-notebook
+    hostname: notebook
+    ports:
+      - "8888:8888"
+    environment:
+      - DASK_SCHEDULER_ADDRESS="tcp://scheduler:8786"
